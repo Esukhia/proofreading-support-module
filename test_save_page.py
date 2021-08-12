@@ -35,7 +35,7 @@ def test_update_layers():
 
 def test_integration():
     os.system('cp -r ./test/data/P0003 ./test/data/P0003_copy')
-    pecha_opf_path = Path('./test/data/P0003_copy/')
+    pecha_opf_path = './test/data/P0003_copy/'
     pecha_id = "P0003"
     vol_num = 1
     page_id = '9d2126031717494e95bf58d63da85a7a'

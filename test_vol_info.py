@@ -11,8 +11,8 @@ def test_get_vol_info():
         '9d2126031717494e95bf58d63da85a7a',
         'a3e8e674294a4eed8aee7ddb3588952e',
     ]
-    pecha_id = "P000001"
-    pecha_path = "./test/P000001/"
+    pecha_id = "P0003"
+    pecha_path = "./test/data/P0003/"
     vol_num = 1
     vol_info = get_vol_info(pecha_id, vol_num, pecha_path=pecha_path)
     assert expected_vol_info == vol_info

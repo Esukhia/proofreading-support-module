@@ -2,10 +2,10 @@ from proofreading import get_page
 from pathlib import Path
 
 def test_get_page():
-    pecha_id = "P000001"
+    pecha_id = "P0003"
     vol_num = 1
     page_id = "6796e040db684bc09365121dd248acd1"
-    pecha_path = './test/P000001/'
+    pecha_path = './test/data/P0003/'
     page_info = get_page(pecha_id, vol_num, page_id, pecha_path)
     expected_page_info = {
         'content': """༄༅༅། །རྒྱ་གར་སྐད་དུ། ཨཱརྱ་པྲཛྙཱ་པཱ་ར་མི་ཏཱ་སཉྩ་ཡ་གཱ་ཐཱ། བོད་སྐད་དུ། འཕགས་པ་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་སྡུད་པ་ཚིགས་སུ་བཅད་པ། འཕགས་པ་
