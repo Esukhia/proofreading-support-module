@@ -49,7 +49,7 @@ def test_integration():
     save_page(pecha_id, vol_num, page_id, new_page_content, pecha_path=pecha_opf_path)
     new_page_info = get_page(pecha_id, vol_num, page_id, pecha_path=pecha_opf_path)
     assert new_page_info['content'] == new_page_content
-    # os.system('rm -r ./test/data/P0003_copy')
+    os.system('rm -r ./test/data/P0003_copy')
 
 
 if __name__ == "__main__":

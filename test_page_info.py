@@ -15,7 +15,6 @@ def test_get_page():
 སྙེད་ཅིག་འབབ་ཅིང་། །མེ་ཏོག་འབྲས་ལྡན་སྨན་དང་ནགས་ཚལ་སྐྱེད་བྱེད་པ། །མ་དྲོས་གནས་པའི་ཀླུ་དབང་ཀླུ་བདག་བརྟེན་གནས་ཏེ། །དེ་ནི་ཀླུ་ཡི་བདག་པོ་དེ་ཡི་མཐུ་དཔལ་ཡིན། །""",
         'image_url': 'https://iiif.bdrc.io/bdr:I0919::09190004.tif/full/max/0/default.jpg'
     }
-    Path('./page.txt').write_text(page_info['content'])
     assert expected_page_info == page_info
 
 
