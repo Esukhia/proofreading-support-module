@@ -207,6 +207,20 @@ def update_base(pecha_path, pecha_id, vol_num, new_vol):
     Path(f"{pecha_path}/{pecha_id}.opf/base/v{int(vol_num):03}.txt").write_text(new_vol, encoding='utf-8')
     print(f'INFO: {vol_num} base updated..')
 
+def update_sub_text_span(vol_offset, sub_text_info, page_start, vol_num, old_pecha_idx):
+    text_uuid = sub_text_info[0]
+    sub_texts = sub_text_info[1]
+    for sub_text_uuid, sub_text_ann in sub_texts.items():
+            text_span = sub_text_ann['span']
+            for vol_walker, vol_span in enumerate(text_span):
+                if vol_span['vol'] == vol_num and vol_span['start'] > page_start:
+                    old_pecha_idx["annotations"][text_uuid]['parts'][sub_text_uuid]['span'][vol_walker]['start'] += vol_offset
+                if vol_span['vol'] == vol_num and vol_span['end'] >= page_start:
+                    old_pecha_idx["annotations"][text_uuid]['parts'][sub_text_uuid]['span'][vol_walker]['end'] += vol_offset
+                elif vol_span['vol'] > vol_num:
+                    break
+    return old_pecha_idx
+
 def update_index(vol_offset, vol_num, page_start, old_pecha_idx):
     """Return updated index
 
@@ -221,6 +235,9 @@ def update_index(vol_offset, vol_num, page_start, old_pecha_idx):
     """
     if vol_offset != 0:
         for text_uuid, text_ann in old_pecha_idx["annotations"].items():
+            if text_ann['parts']:
+                sub_text_info = [text_uuid, text_ann['parts']]
+                old_pecha_idx = update_sub_text_span(vol_offset, sub_text_info, page_start, vol_num, old_pecha_idx)
             text_span = text_ann['span']
             for vol_walker, vol_span in enumerate(text_span):
                 if vol_span['vol'] == vol_num and vol_span['end'] >= page_start:

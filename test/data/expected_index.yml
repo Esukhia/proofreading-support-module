@@ -4,7 +4,13 @@ revision: '00001'
 annotations:
   9ad0f66df8a848bbb97f083030f6f171:
     work_id: T13
-    parts: {}
+    parts:
+      9ad0f66df8a848abb97f083030f6f171:
+        work_id: T13-1
+        span:
+        - vol: 1
+          start: 6580
+          end: 8105
     span:
     - vol: 1
       start: 33
